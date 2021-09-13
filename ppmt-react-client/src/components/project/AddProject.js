@@ -41,6 +41,7 @@ class AddProject extends Component {
             "startDate": this.state.startDate,
             "endDate": this.state.endDate,
         }
+        console.log(newProject);
         this.props.createProject(newProject, this.props.history)
         
     }
@@ -91,7 +92,7 @@ class AddProject extends Component {
                                     <input type="date" className={classname("form-control form-control-lg ", {
                                         "is-invalid": errors.startDate
                                     })}
-                                    name="start_date" name="startDate" value={this.state.startDate} onChange={this.onChange}/>
+                                    name="startDate" value={this.state.startDate} onChange={this.onChange}/>
                                     {errors.startDate && (
                                         <div className="invalid-feedback"> {errors.startDate}</div>
                                     )}   
@@ -101,7 +102,7 @@ class AddProject extends Component {
                                     <input type="date" className={classname("form-control form-control-lg ", {
                                         "is-invalid": errors.endDate
                                     })} 
-                                    name="end_date" name="endDate" value={this.state.endDate} onChange={this.onChange}/>
+                                    name="endDate" value={this.state.endDate} onChange={this.onChange}/>
                                     {errors.endDate && (
                                         <div className="invalid-feedback"> {errors.endDate}</div>
                                     )}   

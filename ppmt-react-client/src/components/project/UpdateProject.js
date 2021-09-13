@@ -123,7 +123,7 @@ class UpdateProject extends Component {
                                     <input type="date" className={classname("form-control form-control-lg" ,{
                                         "is-invalid" : errors.startDate
                                     })}
-                                    name="start_date" name="startDate" 
+                                    name="startDate" 
                                     value={this.state.startDate}
                                     onChange={this.onChange}
                                     />
@@ -137,7 +137,7 @@ class UpdateProject extends Component {
                                     <input type="date" className={classname("form-control form-control-lg" ,{
                                         "is-invalid" : errors.endDate
                                     })}
-                                    name="end_date" name="endDate" 
+                                    name="endDate" 
                                     value={this.state.endDate}
                                     onChange={this.onChange}
                                     />

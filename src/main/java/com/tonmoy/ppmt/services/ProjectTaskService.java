@@ -36,12 +36,12 @@ public class ProjectTaskService {
             projectTask.setProjectSequence(projectIdentifier+"-"+ backlogSequence);
             projectTask.setProjectIdentifier(projectIdentifier);
 
-            if(projectTask.getPriority() == null) { //projectTask.getPriority() == 0 ||  to handle o from frontend
+            if(projectTask.getPriority() == 0 || projectTask.getPriority() == null) { //projectTask.getPriority() == 0 ||  to handle o from frontend
                 projectTask.setPriority(3);
             }
 
             if(projectTask.getStatus() == "" || projectTask.getStatus() == null ) {
-                projectTask.setStatus("TODO");
+                projectTask.setStatus("TO_DO");
             }
 
             return projectTaskRepository.save(projectTask);
