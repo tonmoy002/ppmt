@@ -1,5 +1,6 @@
 package com.tonmoy.ppmt.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -21,6 +22,7 @@ public class ProjectTask {
     private String summary;
     private String acceptanceCriteria;
     private Integer priority;
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date dueDate;
     // Many to One with backlog
     @ManyToOne(fetch = FetchType.EAGER)
