@@ -1,11 +1,11 @@
  import axios from "axios";
-import { GET_ERRORS, GET_BACKLOG, GET_PROJECT_TASK, DELETE_PROJECT_TASK } from "./types";
+import { GET_ERRORS, GET_BACKLOG, GET_PROJECT_TASK, DELETE_PROJECT_TASK, GET_API_URL } from "./types";
 
 
 export const addProjectTask = (backlog_id, project_task, history) => async dispatch =>{
 
     try{
-        await axios.post(`/api/backlog/${backlog_id}`, project_task);
+        await axios.post(`${GET_API_URL}api/backlog/${backlog_id}`, project_task);
         history.push(`/projectBoard/${backlog_id}`);
 
         dispatch({
@@ -24,7 +24,7 @@ export const addProjectTask = (backlog_id, project_task, history) => async dispa
 export const getBacklog = backlog_id => async dispatch => {
     try{
 
-        const res = await axios.get(`/api/backlog/${backlog_id}`);
+        const res = await axios.get(`${GET_API_URL}api/backlog/${backlog_id}`);
         dispatch({
             type: GET_BACKLOG,
             payload: res.data
@@ -40,7 +40,7 @@ export const getBacklog = backlog_id => async dispatch => {
 export const getProjectTask = (backlog_id, pt_id, history) => async dispatch =>{
 
     try{
-        const res = await axios.get(`/api/backlog/${backlog_id}/${pt_id}`);
+        const res = await axios.get(`${GET_API_URL}api/backlog/${backlog_id}/${pt_id}`);
         dispatch({
             type: GET_PROJECT_TASK,
             payload: res.data
@@ -55,7 +55,7 @@ export const getProjectTask = (backlog_id, pt_id, history) => async dispatch =>{
 export const updateProjectTaskAjx = (backlog_id, pt_id, project_task, history) => async dispatch =>{
 
     try{
-        await axios.patch(`/api/backlog/${backlog_id}/${pt_id}`, project_task);
+        await axios.patch(`${GET_API_URL}api/backlog/${backlog_id}/${pt_id}`, project_task);
         history.push(`/projectBoard/${backlog_id}`);
 
         dispatch({
@@ -75,7 +75,7 @@ export const updateProjectTaskAjx = (backlog_id, pt_id, project_task, history) =
 export const deleteProjectTask = (backlog_id, pt_id) => async dispatch => {
 
     if(window.confirm("Are you sure to delete?")) {
-        await axios.delete(`/api/backlog/${backlog_id}/${pt_id}`);
+        await axios.delete(`${GET_API_URL}api/backlog/${backlog_id}/${pt_id}`);
         dispatch({
             type: DELETE_PROJECT_TASK,
             payload: pt_id
