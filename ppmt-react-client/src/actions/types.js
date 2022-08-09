@@ -11,3 +11,7 @@ export const DELETE_PROJECT_TASK = "DELETE_PROJECT_TASK";
 
 // Types for Register
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+
+
+// Types for all link
+export const GET_API_URL = "http://localhost:8080/";
